@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+        <style>
+            body{
+                position: fixed;
+                
+                left: 680px;
+                bottom: 10px;
+                top: 30px;
+                background-color: beige;
+            }
+            
+            .op-logicos{
+                position: relative;
+                
+                display: flex;
+                flex-direction: column;
+                left: 260px;
+                bottom: 340px;
+
+            }
+            #calculator {
+                width: 300px;
+               margin: 30%;
+            }
+            #calculator input {
+                font-size: 1.2em;
+                width: 80px;
+                height: 80px;
+                color: #fff;
+                background-color: #4db6ac;
+                border: none;
+                border-radius: 5px;
+                margin-bottom: 5px;
+            }
+            #calculator input:hover {
+                background-color: #00bcd4;
+                cursor: pointer;
+            }
+            #screen {
+                width: 320px;
+                height: 40px;
+                background-color: #0414136c;
+                color: #fff;
+                font-size: 1.7em;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cabecalho"></div>
+        <div id="calculator">
+            <div id="screen"></div><br>
+            <input type="button" value="1" onclick="updateScreen('1')">
+            <input type="button" value="2" onclick="updateScreen('2')">
+            <input type="button" value="3" onclick="updateScreen('3')">
+            
+            <input type="button" value="4" onclick="updateScreen('4')">
+            <input type="button" value="5" onclick="updateScreen('5')">
+            <input type="button" value="6" onclick="updateScreen('6')">
+            
+            <input type="button" value="7" onclick="updateScreen('7')">
+            <input type="button" value="8" onclick="updateScreen('8')">
+            <input type="button" value="9" onclick="updateScreen('9')">
+            <input type="button" value="c" onclick="clearScreen()">
+            <input type="button" value="0" onclick="updateScreen('0')">
+            <input type="button" value="=" onclick="calculate()">
+        <br>
+            <div class="op-logicos">
+                <input type="button" value="/" onclick="updateScreen('/')">
+            <input type="button" value="*" onclick="updateScreen('*')">
+            <input type="button" value="-" onclick="updateScreen('-')">
+            <input type="button" value="+" onclick="updateScreen('+')">
+            </div>
+        </div>
+        <script type="text/javascript">
+            let screenValue = '';
+            function updateScreen(val) {
+                screenValue += val;
+                document.getElementById('screen').innerHTML = screenValue;
+            }
+            function clearScreen() {
+                screenValue = "";
+                document.getElementById('screen').innerHTML = screenValue;
+            }
+            function calculate() {
+                screenValue = eval(screenValue);
+                document.getElementById('screen').innerHTML = screenValue;
+            }
+        </script>
+    </body>
+</html>
